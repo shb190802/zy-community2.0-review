@@ -21,8 +21,9 @@
     * 业主端（Vue + vant-ui）
 
   * **制定开发规范**
-    * 开发规范地址：[https://shb190802.github.io/front-end-dev-guide/dist/](https://shb190802.github.io/front-end-dev-guide/dist/)
 
+* 开发规范地址：[https://shb190802.github.io/front-end-dev-guide/dist/](https://shb190802.github.io/front-end-dev-guide/dist/)
+  
   * **使用VSCode**
     * 安装eslint、Prettier、Vetur等插件做代码检测和格式化
     * 配置vscode的setting.json
@@ -114,9 +115,11 @@
     在config文件中配置一些全局配置。如：
     1. baseUrl
     2. 文件服务器地址
+    
   * **全局utils**
     1. 常用util挂在在Vue原型上
     2. 不常用util单独引用
+    
   * **合作开发**
     1. 代理服务器配置
       
@@ -130,6 +133,7 @@
         1. nocrypt：请求和响应不加解密
         2. nologin：请求和响应不传用户身份用户身份
         3. nofilter：页面不会根据权限过滤菜单和按钮
+        
   * **数据mock**
         
       在拿到开发需求之后，前后端需要整理出完成功能所需的api接口。
@@ -153,15 +157,12 @@
 
   * **使用filter**
 
-    开发中使用到很多字典值比如：支付方式、性别、等。使用全局filter来显示对应文本内容
+    开发中使用到很多字典值比如：支付方式、性别等。使用全局filter来显示对应文本内容
 
   * **使用mixin**
 
     相似的页面会存在大量的共同代码，使用mixin能很好的减少代码量和修改难度
 
-  * **设置编译模式（env）**
-
-    根据不同的生产环境，设置不同的编译模式
 
 <br/>
 <br/>
@@ -209,6 +210,10 @@
 
 ## 上线
 
+  * **设置编译模式（env）**
+
+    根据不同的生产环境，设置不同的编译模式，不同的编译模式下可以使用不同的请求方式（如：baseUrl，加解密方式等）
+    
   * **Jenkins自动发布**
 
     配置Jenkins服务器，自动编译上传最新代码
@@ -247,8 +252,9 @@
   * **使用keepalive.include**
 
     keepalive在vue开发中，被我们大量使用到。但是为了防止不必要的缓存。我们使用include方法。<br />
-    实时监听当前显示的tag标签。将路由的name合并为数组赋值给include。这样保证关闭标签后会释放缓存、切换标签时候保留缓存。
-  
+    实时监听当前显示的tag标签。将路由的name合并为数组赋值给include。这样保证关闭标签后会释放缓存、切换标签时候保留缓存。<br />
+    页面组件的name必须和route的name保持一致
+    
   * **浏览器针对input.password默认事件**
 
     浏览器会根据根对类型为password的input标签，默认选择已保存密码。<br />
@@ -259,4 +265,4 @@
     在业主的微信环境下。用户切换到其他页面之后，再返回回来。会导致页面莫名有些功能不可使用。本项目处理方式为。每次返回，重新loading页面。<br />
     监听popstate。在离开页面时候设置标志位。返回回来之后调用reload
     
-  
+
