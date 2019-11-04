@@ -22,7 +22,7 @@
 
   * **制定开发规范**
 
-* 开发规范地址：[https://shb190802.github.io/front-end-dev-guide/dist/](https://shb190802.github.io/front-end-dev-guide/dist/)
+    * 开发规范地址：[https://shb190802.github.io/front-end-dev-guide/dist/](https://shb190802.github.io/front-end-dev-guide/dist/)
   
   * **使用VSCode**
     * 安装eslint、Prettier、Vetur等插件做代码检测和格式化
