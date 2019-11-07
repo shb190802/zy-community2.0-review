@@ -206,11 +206,40 @@
     1. 使用png-8 替换 png-32/24
     2. 照片类使用jpeg格式并压低质量
     3. 微信端的图片上上传，使用微信图片压缩功能
+    4. webp由于兼容性问题，暂时不作考虑
 
   * **去掉preload、prefetch**
 
     preload和prefetch会在浏览器空闲时间，静默下载其他首页未引用静态资源。增加之后页面的访问体验<br />
     但是静默下载默认会消耗服务端带宽，造成服务器出口带宽压力。此处删除
+    
+* **去掉lodash**
+
+  lodash库功能强大，不过客户端仅使用其中很少一部分代码。所以替换使用的工具库，删除lodash
+
+* **使用echarts.simple 代替权利echarts**
+
+  由于我们使用echarts仅仅基础内容，所有引用/echarts/echarts.simple完全满足，单独需求可以自定义引用。
+
+* **引用moment.min代替直接引用moment**
+
+  moment默认自带了国际化，此处不需要。手动修改引用指向/moment/min/moment.min
+
+  * 编译报warn 可以手动在node_modules/moment/min里边新增locale文件夹来取消，不影响使用
+
+* **使用webpack.DllPlugin来剥离公共库**
+
+  将公共库组件剥离出来，加速编译。
+
+  此处优化作用不是特别明显，暂时放弃。
+
+* **使用happypack加速编译速度**
+
+  开发环境正常启动，但是build时报错，官方也没有反馈issue。暂时放弃
+
+* **添加项目编译时间**
+
+  每次build的时候，给项目增加一个当前编译时间。来确定项目是什么时候变异的版本。
 
 <br/>
 <br/>
